@@ -1,18 +1,20 @@
 import styled from 'styled-components';
 
 const Button = styled.button`
-  background-color: blue;
+  background-color: darkgreen;
   height: 50px;
   width: 150px;
   color: white;
   appearance: none;
   border: none;
   border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 
   :hover {
     background-color: white;
-    color: blue;
-    border: solid 2px blue;
+    color: darkgreen;
+    border: solid 2px darkgreen;
   }
 
   :disabled {
