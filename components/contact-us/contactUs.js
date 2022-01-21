@@ -1,6 +1,11 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Button from '../button/button';
+import Input from '../input/input';
+import Select from '../input/select';
+import Textarea from '../input/textarea';
+import ResetButton from '../button/resetButton';
+import SubTitle from '../title/subTitle';
 
 const ContactUs = () => {
   const {
@@ -44,6 +49,7 @@ const ContactUs = () => {
   console.log('errors', errors);
   return (
     <div style={{ margin: '50px' }}>
+      <SubTitle>React Form</SubTitle>
       <form
         onSubmit={handleSubmit}
         style={{
@@ -52,43 +58,43 @@ const ContactUs = () => {
           flexDirection: 'column',
         }}
       >
-        <input
+        <Input
           name='firstName'
           id='firstName'
           placeholder='First Name'
           value={values.firstName}
           onChange={handleChange}
           onBlur={handleBlur}
-        ></input>
+        ></Input>
         <p style={{ color: 'red', margin: '0' }}>
           {touched.firstName && errors.firstName}
         </p>
         <br />
-        <input
+        <Input
           name='lastName'
           id='lastName'
           placeholder='Last Name'
           value={values.lastName}
           onChange={handleChange}
           onBlur={handleBlur}
-        ></input>
+        ></Input>
         <p style={{ color: 'red', margin: '0' }}>
           {touched.lastName && errors.lastName}
         </p>
         <br />
-        <input
+        <Input
           name='email'
           id='email'
           placeholder='Email'
           value={values.email}
           onChange={handleChange}
           onBlur={handleBlur}
-        ></input>
+        ></Input>
         <p style={{ color: 'red', margin: '0' }}>
           {touched.email && errors.email}
         </p>
         <br />
-        <select
+        <Select
           name='musicTaste'
           id='musicTaste'
           value={values.musicTaste}
@@ -100,32 +106,28 @@ const ContactUs = () => {
           <option value='rap'>Rap</option>
           <option value='edm'>EDM</option>
           <option value='heavyMetal'>Heavy Metal</option>
-        </select>
+        </Select>
         <p style={{ color: 'red', margin: '0' }}>
           {touched.musicTaste && errors.musicTaste}
         </p>
         <br />
-        <textarea
+        <Textarea
           name='message'
           id='message'
           placeholder='Message'
           value={values.message}
           onChange={handleChange}
           onBlur={handleBlur}
-        ></textarea>
+        ></Textarea>
         <p style={{ color: 'red', margin: '0' }}>
           {touched.message && errors.message}
         </p>
         <Button type='submit' disabled={isSubmitting}>
           Submit
         </Button>
-        <Button
-          style={{ background: 'red', margin: '0' }}
-          type='reset'
-          onClick={resetForm}
-        >
+        <ResetButton type='reset' onClick={resetForm}>
           Reset
-        </Button>
+        </ResetButton>
       </form>
     </div>
   );
